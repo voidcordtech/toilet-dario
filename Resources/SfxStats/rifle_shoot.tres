@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SfxStats" format=3 uid="uid://cgjbsqhlvndm1"]
+
+[ext_resource type="Script" uid="uid://hskyx6kdcrob" path="res://Classes/sfx_stats.gd" id="1_ctgk5"]
+[ext_resource type="AudioStream" uid="uid://c2mm1pfvvfcv7" path="res://Assets/Audio/Sfx/enemy_hurt2.wav" id="2_vevlo"]
+
+[resource]
+script = ExtResource("1_ctgk5")
+streams = Array[AudioStream]([ExtResource("2_vevlo")])
+volume_db = -3.0
+metadata/_custom_type_script = "uid://hskyx6kdcrob"

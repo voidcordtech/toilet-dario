@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ct36am7pq7mcr"]
+
+[ext_resource type="Script" uid="uid://c30hyohom7aev" path="res://Scripts/Ui/header.gd" id="1_oe8q3"]
+
+[node name="Header" type="PanelContainer" unique_id=1345164072]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.583336
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelHeaderBar"
+script = ExtResource("1_oe8q3")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=914637225]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer" unique_id=1364446194]
+layout_mode = 2
+theme_type_variation = &"Title1"
+text = "[title]"
+horizontal_alignment = 1
+
+[node name="CloseIconButton" type="Button" parent="MarginContainer" unique_id=1207476590]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ButtonIcon"

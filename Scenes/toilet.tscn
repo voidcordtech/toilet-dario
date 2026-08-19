@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dpl86eksawnsq"]
+
+[ext_resource type="Script" uid="uid://i6kyj0j3mkur" path="res://Scripts/toilet.gd" id="1_ygave"]
+[ext_resource type="PackedScene" uid="uid://bnygrxxyjfuql" path="res://Assets/Blender/Toilet/toilet.blend" id="2_b53y0"]
+[ext_resource type="PackedScene" uid="uid://swh4xsjeii0r" path="res://Components/Scenes/interactable_box_component.tscn" id="3_b53y0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unj8y"]
+size = Vector3(0.59350586, 0.7976236, 1.2815373)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygave"]
+size = Vector3(0.7519531, 0.6591573, 0.3143131)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8kc3h"]
+radius = 1.5
+
+[node name="Toilet" type="StaticBody3D" unique_id=1053936888 node_paths=PackedStringArray("interact_box")]
+script = ExtResource("1_ygave")
+interact_box = NodePath("InteractBoxComponent")
+
+[node name="toilet" parent="." unique_id=1179221026 instance=ExtResource("2_b53y0")]
+
+[node name="Cover" parent="toilet" index="2" unique_id=421031068]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0016628206, 0.8002179, -0.19917864)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1962077625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007184446, 0.3988118, -0.019707918)
+visible = false
+shape = SubResource("BoxShape3D_unj8y")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1019454889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007184446, 1.0707374, -0.52161264)
+visible = false
+shape = SubResource("BoxShape3D_ygave")
+
+[node name="InteractBoxComponent" parent="." unique_id=329235206 instance=ExtResource("3_b53y0")]
+can_interact = false
+
+[node name="E" parent="InteractBoxComponent" index="0" unique_id=1722708701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7449169, -0.53418374)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractBoxComponent" unique_id=958613902]
+shape = SubResource("SphereShape3D_8kc3h")
+
+[node name="TeleportPosition" type="Marker3D" parent="." unique_id=1107864514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005117893, 0.14842069, 0.102359146)
+
+[editable path="toilet"]
+[editable path="InteractBoxComponent"]

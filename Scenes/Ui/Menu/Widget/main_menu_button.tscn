@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ctu8m5j4qf3ts"]
+
+[ext_resource type="Script" uid="uid://lx1oxj3rba6u" path="res://Scripts/Ui/Widget/main_menu_button.gd" id="1_72tu8"]
+[ext_resource type="PackedScene" uid="uid://d2gs2m80pck2t" path="res://Scenes/main_menu.tscn" id="2_dmh6y"]
+
+[node name="MainMenuButton" type="Button" unique_id=1531170369]
+theme_type_variation = &"ButtonCaution"
+text = "Main Menu"
+script = ExtResource("1_72tu8")
+main_menu = ExtResource("2_dmh6y")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

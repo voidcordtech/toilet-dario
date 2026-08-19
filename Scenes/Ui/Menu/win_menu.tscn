@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://doewvubok0hg6"]
+
+[ext_resource type="Script" uid="uid://d4hnmm8usr2qw" path="res://Scripts/Ui/win_menu.gd" id="1_jg2jo"]
+[ext_resource type="PackedScene" uid="uid://ctybepfjnalgp" path="res://Scenes/Ui/Menu/Widget/restart_button.tscn" id="3_37cxw"]
+[ext_resource type="PackedScene" uid="uid://ctu8m5j4qf3ts" path="res://Scenes/Ui/Menu/Widget/main_menu_button.tscn" id="3_45dpd"]
+
+[node name="WinMenu" type="Control" unique_id=841495780]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jg2jo")
+
+[node name="Window" type="PanelContainer" parent="." unique_id=299701983]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelWindow"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window" unique_id=797345782]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="Window/VBoxContainer" unique_id=1345164072]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelHeaderBar"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/Header" unique_id=914637225]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Window/VBoxContainer/Header/MarginContainer" unique_id=1364446194]
+layout_mode = 2
+theme_type_variation = &"Title1"
+text = "Nice. Subscribe :D"
+horizontal_alignment = 1
+
+[node name="View" type="PanelContainer" parent="Window/VBoxContainer" unique_id=526490960]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PanelView"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View" unique_id=1562201886]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer" unique_id=1363992565]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=1267933150]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ScoreLabel" type="Label" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1476342310]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Score: 234234"
+
+[node name="TimeLabel" type="Label" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer/VBoxContainer" unique_id=266904462]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Time: 123123"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=572416652]
+layout_mode = 2
+
+[node name="NexLevelButton" type="Button" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1406598115]
+layout_mode = 2
+text = "Next"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=593581010]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RestartButton" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1100113352 instance=ExtResource("3_37cxw")]
+layout_mode = 2
+
+[node name="MainMenuButton" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1531170369 instance=ExtResource("3_45dpd")]
+layout_mode = 2

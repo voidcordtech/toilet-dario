@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SfxStats" format=3 uid="uid://r1uvooqrc3f8"]
+
+[ext_resource type="Script" uid="uid://hskyx6kdcrob" path="res://Classes/sfx_stats.gd" id="1_wijg3"]
+[ext_resource type="AudioStream" uid="uid://c0c2ht1pygjwv" path="res://Assets/Audio/Sfx/water.wav" id="2_rdqos"]
+
+[resource]
+script = ExtResource("1_wijg3")
+streams = Array[AudioStream]([ExtResource("2_rdqos")])
+pitch_variation = 0.0
+metadata/_custom_type_script = "uid://hskyx6kdcrob"

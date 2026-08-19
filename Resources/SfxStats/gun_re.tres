@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SfxStats" format=3 uid="uid://cdoykplkcpbxm"]
+
+[ext_resource type="Script" uid="uid://hskyx6kdcrob" path="res://Classes/sfx_stats.gd" id="1_lr015"]
+[ext_resource type="AudioStream" uid="uid://ced6p3fgg3kh8" path="res://Assets/Audio/Sfx/gun_re.wav" id="2_jp3s8"]
+
+[resource]
+script = ExtResource("1_lr015")
+streams = Array[AudioStream]([ExtResource("2_jp3s8")])
+volume_db = -5.0
+metadata/_custom_type_script = "uid://hskyx6kdcrob"

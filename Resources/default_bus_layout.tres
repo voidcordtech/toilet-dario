@@ -1,0 +1,33 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bthadiqnii785"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_nvyeh"]
+resource_name = "Distortion"
+keep_hf_hz = 8240.0
+drive = 0.5
+post_gain = -10.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_nvyeh"]
+resource_name = "Limiter"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/0/effect/0/enabled = false
+bus/1/name = &"Sfx"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectDistortion_nvyeh")
+bus/1/effect/0/enabled = false
+bus/1/effect/1/effect = SubResource("AudioEffectLimiter_nvyeh")
+bus/1/effect/1/enabled = false
+bus/2/name = &"Ambient"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"

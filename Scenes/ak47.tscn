@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://co4ytw632onm0"]
+
+[ext_resource type="PackedScene" uid="uid://be5a4neydw32d" path="res://Scenes/BASE/base_gun.tscn" id="1_g83le"]
+[ext_resource type="Resource" uid="uid://bwdubr5nj4nqe" path="res://Resources/GunStats/ak47.tres" id="2_y6vsc"]
+[ext_resource type="PackedScene" uid="uid://dt5bvn6p4rkng" path="res://Assets/Blender/Gun/Ak47/ak47.blend" id="3_n1kmc"]
+[ext_resource type="PackedScene" uid="uid://dvc21vwi7un4t" path="res://Components/Scenes/floating_component.tscn" id="4_y6vsc"]
+
+[node name="Ak47" unique_id=1364471051 instance=ExtResource("1_g83le")]
+stats = ExtResource("2_y6vsc")
+
+[node name="Muzzle" parent="." index="0" unique_id=1631163333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0308555, -0.8354373)
+
+[node name="ak-47" parent="." index="1" unique_id=1695770833 instance=ExtResource("3_n1kmc")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, 4.371139e-08, 1, -4.371139e-08, 1, -4.371139e-08, -4.3711385e-08, 0, 0, 0)
+
+[node name="FloatingComponent" parent="." index="3" unique_id=1399224699 node_paths=PackedStringArray("target_mesh") instance=ExtResource("4_y6vsc")]
+target_mesh = NodePath("../ak-47")

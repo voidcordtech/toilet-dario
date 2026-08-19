@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://dx0or05iehljy"]
+
+[ext_resource type="Script" uid="uid://b4bunw0g7ajuf" path="res://Scripts/player.gd" id="1_y8w33"]
+[ext_resource type="PackedScene" uid="uid://ckvalkky66rut" path="res://Components/Scenes/health_component.tscn" id="5_wm3mq"]
+[ext_resource type="PackedScene" uid="uid://c3rqdgs0luype" path="res://Assets/Blender/Mario/mario.glb" id="6_x3wgy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8w33"]
+radius = 0.14746094
+height = 0.8464111
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_y8w33"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6t5aa"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fkybt"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vgqql"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3wgy"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3smsa"]
+animation = &"walk_shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3smsa"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8erm5"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6t5aa"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vgqql"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fkybt"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3wgy"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f1ek2"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tx1dd"]
+advance_mode = 2
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gymyn"]
+advance_mode = 2
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pu2lt"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ukyrk"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7dp3o"]
+advance_mode = 2
+advance_condition = &"walk_shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h4iuc"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fd4e3"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qqcod"]
+advance_mode = 2
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_igrcy"]
+advance_mode = 2
+advance_condition = &"walk_shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs7ks"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6n3p"]
+advance_mode = 2
+advance_condition = &"walk_shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_olqyp"]
+advance_mode = 2
+advance_condition = &"walk_shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wpjfl"]
+advance_mode = 2
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bi64h"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fkybt"]
+states/End/position = Vector2(754, 79.55555)
+states/Start/position = Vector2(158.66667, 99.18519)
+states/idle/node = SubResource("AnimationNodeAnimation_6t5aa")
+states/idle/position = Vector2(299.66666, 9.4883375)
+states/jump/node = SubResource("AnimationNodeAnimation_fkybt")
+states/jump/position = Vector2(288.18518, 204.01863)
+states/run/node = SubResource("AnimationNodeAnimation_vgqql")
+states/run/position = Vector2(636.8518, 8.4732485)
+states/shoot/node = SubResource("AnimationNodeAnimation_x3wgy")
+states/shoot/position = Vector2(638.27203, 197.4429)
+states/walk_shoot/node = SubResource("AnimationNodeAnimation_3smsa")
+states/walk_shoot/position = Vector2(469.33334, 311.36075)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_3smsa"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_8erm5"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_6t5aa"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_vgqql"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_fkybt"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_x3wgy"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_f1ek2"), "run", "shoot", SubResource("AnimationNodeStateMachineTransition_tx1dd"), "idle", "shoot", SubResource("AnimationNodeStateMachineTransition_gymyn"), "shoot", "idle", SubResource("AnimationNodeStateMachineTransition_pu2lt"), "shoot", "run", SubResource("AnimationNodeStateMachineTransition_ukyrk"), "idle", "walk_shoot", SubResource("AnimationNodeStateMachineTransition_7dp3o"), "walk_shoot", "idle", SubResource("AnimationNodeStateMachineTransition_h4iuc"), "walk_shoot", "run", SubResource("AnimationNodeStateMachineTransition_fd4e3"), "walk_shoot", "shoot", SubResource("AnimationNodeStateMachineTransition_qqcod"), "shoot", "walk_shoot", SubResource("AnimationNodeStateMachineTransition_igrcy"), "walk_shoot", "jump", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "jump", "walk_shoot", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "run", "walk_shoot", SubResource("AnimationNodeStateMachineTransition_olqyp"), "jump", "shoot", SubResource("AnimationNodeStateMachineTransition_wpjfl"), "shoot", "jump", SubResource("AnimationNodeStateMachineTransition_bi64h")]
+graph_offset = Vector2(-55, -45)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8kc3h"]
+radius = 2.0
+
+[node name="Player" type="CharacterBody3D" unique_id=1463886862 node_paths=PackedStringArray("health_component") groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_y8w33")
+health_component = NodePath("HealthComponent")
+jump_velocity = 7.0
+gravity = Vector3(0, -16, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2100492799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42320555, 0)
+shape = SubResource("CapsuleShape3D_y8w33")
+
+[node name="Marker" type="Node3D" parent="." unique_id=2072597447]
+
+[node name="HeadMarker" type="Marker3D" parent="Marker" unique_id=1006748765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.597622, 0)
+
+[node name="HeadRay" type="RayCast3D" parent="Marker/HeadMarker" unique_id=984018680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21456671, 0)
+target_position = Vector3(0, 0.1, 0)
+
+[node name="BodyMarker" type="Marker3D" parent="Marker" unique_id=1955684597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4179654, 0)
+
+[node name="ScoreMarker" type="Marker3D" parent="Marker" unique_id=348886369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76512444, 0)
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1838755554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=712891384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.8)
+shape = SubResource("SeparationRayShape3D_y8w33")
+spring_length = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1838285467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7881393e-07)
+current = true
+
+[node name="PointingRay" type="RayCast3D" parent="CameraPivot/SpringArm3D/Camera3D" unique_id=698557751]
+target_position = Vector3(0, -1, -1000)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=966937320]
+root_node = NodePath("../mario")
+tree_root = SubResource("AnimationNodeStateMachine_fkybt")
+anim_player = NodePath("../mario/AnimationPlayer")
+parameters/conditions/idle = false
+parameters/conditions/jump = false
+parameters/conditions/run = false
+parameters/conditions/shoot = false
+parameters/conditions/walk_shoot = false
+
+[node name="HealthComponent" parent="." unique_id=345089467 instance=ExtResource("5_wm3mq")]
+max_health = 15
+
+[node name="mario" parent="." unique_id=2122816148 instance=ExtResource("6_x3wgy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="mario/Armature" parent_id_path=PackedInt32Array(2122816148, 911928167) index="0" unique_id=568077803]
+bones/0/position = Vector3(-0.14643109, 1.2665536, -27.696527)
+bones/0/rotation = Quaternion(-0.7261905, -0.07343603, 0.021210758, 0.68323094)
+bones/1/rotation = Quaternion(-0.06600257, -0.011892671, 0.036072616, 0.9970963)
+bones/2/rotation = Quaternion(0.00678154, -0.018795937, 0.05054596, 0.9985218)
+bones/3/rotation = Quaternion(0.007153108, -0.017022407, 0.051189814, 0.9985182)
+bones/4/rotation = Quaternion(0.09527631, 0.0059580104, -0.023658032, 0.99515194)
+bones/5/rotation = Quaternion(-0.019076167, 0.03286297, -0.07401086, 0.9965333)
+bones/7/rotation = Quaternion(-0.5614365, -0.41826713, 0.6115604, -0.3685588)
+bones/8/position = Vector3(-2.0286848e-06, 8.834969, 2.4010744e-06)
+bones/8/rotation = Quaternion(0.53561836, 0.15307929, -0.015633529, 0.83032244)
+bones/9/rotation = Quaternion(0.0124624465, -0.0007845719, 0.11488917, 0.99329984)
+bones/10/position = Vector3(1.2880982e-06, 9.412449, 5.6561366e-06)
+bones/10/rotation = Quaternion(0.046231773, -0.0013073091, 0.08906074, 0.9949519)
+bones/11/rotation = Quaternion(0.06368502, -0.015240971, -0.009959406, 0.99780405)
+bones/12/rotation = Quaternion(0.05572822, 0.055222597, -0.26416513, 0.96128124)
+bones/13/rotation = Quaternion(0.15017503, -0.0013523222, 0.12731765, 0.9804264)
+bones/15/rotation = Quaternion(0.628799, -0.3580529, 0.5770412, 0.3787261)
+bones/16/rotation = Quaternion(0.3751288, -0.11652493, 0.08334938, 0.9158348)
+bones/17/rotation = Quaternion(0.007493275, 0.0022428376, -0.08528796, 0.9963257)
+bones/18/rotation = Quaternion(0.025670273, 0.10665887, 0.0014013719, 0.9939633)
+bones/19/rotation = Quaternion(0.07260058, 0.0027889346, 0.009743145, 0.9973097)
+bones/20/rotation = Quaternion(0.023077464, -0.021073654, 0.12651013, 0.9914729)
+bones/21/rotation = Quaternion(0.114067145, 0.009266911, -0.069360435, 0.9910056)
+bones/23/rotation = Quaternion(0.13300258, 0.22830382, 0.94843554, -0.17509386)
+bones/24/rotation = Quaternion(-0.32636103, 0.047363088, 0.007342623, 0.9440293)
+bones/25/rotation = Quaternion(0.4367993, -0.04545363, -0.09549847, 0.89331996)
+bones/26/rotation = Quaternion(0.3696618, -0.027780162, 0.012251252, 0.9286702)
+bones/28/rotation = Quaternion(-0.06858336, -0.06459527, 0.9931399, -0.06926063)
+bones/29/rotation = Quaternion(-0.19576451, 0.057411414, 0.016264932, 0.9788339)
+bones/30/rotation = Quaternion(0.5863794, -0.013593755, -0.039234195, 0.80897164)
+bones/31/rotation = Quaternion(0.3840413, 0.027417539, -0.011298215, 0.92283964)
+
+[node name="GunHolder" type="Node3D" parent="." unique_id=1475454391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47677994, 0)
+
+[node name="Magnet" type="Area3D" parent="." unique_id=1235840839]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Magnet" unique_id=45970093]
+visible = false
+shape = SubResource("SphereShape3D_8kc3h")
+
+[node name="GunReloadCd" type="Timer" parent="." unique_id=361765667]
+one_shot = true
+
+[connection signal="body_entered" from="Magnet" to="." method="_on_magnet_body_entered"]
+
+[editable path="mario"]

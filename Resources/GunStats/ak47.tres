@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GunStats" format=3 uid="uid://bwdubr5nj4nqe"]
+
+[ext_resource type="Script" uid="uid://ckn6ndtea52vw" path="res://Classes/gun_stats.gd" id="1_cgkrr"]
+[ext_resource type="PackedScene" uid="uid://dou6cr5sei6ve" path="res://Scenes/bullet.tscn" id="1_h2xnv"]
+
+[resource]
+script = ExtResource("1_cgkrr")
+bullet_path = ExtResource("1_h2xnv")
+speed = 300
+metadata/_custom_type_script = "uid://ckn6ndtea52vw"

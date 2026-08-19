@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://2ntwbksq1dyp"]
+
+[ext_resource type="Script" uid="uid://creeh86jqfm52" path="res://Scripts/water.gd" id="1_gf5bf"]
+[ext_resource type="Material" uid="uid://joa4kq6vpurf" path="res://Resources/Shaders/moving_water.tres" id="1_slmpt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6t5aa"]
+material = ExtResource("1_slmpt")
+
+[node name="Water" type="Area3D" unique_id=2094162112]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gf5bf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=690893543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_6t5aa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

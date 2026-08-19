@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://edwraxy8ehof"]
+
+[ext_resource type="PackedScene" uid="uid://xaydwdy88osd" path="res://Scenes/BASE/base_splittable.tscn" id="1_7j4qg"]
+[ext_resource type="PackedScene" uid="uid://bkd4ub3yu3v4d" path="res://Scenes/mushroom.tscn" id="2_7j4qg"]
+
+[node name="MushroomSplittable" unique_id=1521127115 instance=ExtResource("1_7j4qg")]
+spawn_duration = 10
+
+[node name="Mushroom" parent="." index="0" unique_id=57110637 instance=ExtResource("2_7j4qg")]

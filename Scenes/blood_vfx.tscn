@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://wr1kxpg5f354"]
+
+[sub_resource type="Curve" id="Curve_g4p80"]
+_data = [Vector2(0, 0.44943815), 0.0, 0.0, 0, 0, Vector2(0.4965278, 0.983146), 0.0, 0.0, 0, 0, Vector2(0.9965278, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x3wgy"]
+curve = SubResource("Curve_g4p80")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pfd24"]
+lifetime_randomness = 0.9
+emission_shape = 1
+emission_sphere_radius = 0.05
+direction = Vector3(0, 0, 1)
+spread = 60.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.29999998
+scale_curve = SubResource("CurveTexture_x3wgy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5vvk"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.14954376, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j7ouu"]
+material = SubResource("StandardMaterial3D_u5vvk")
+radius = 0.05
+height = 0.1
+
+[node name="BloodVfx" type="GPUParticles3D" unique_id=1131748296]
+emitting = false
+amount = 36
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_pfd24")
+draw_pass_1 = SubResource("CapsuleMesh_j7ouu")

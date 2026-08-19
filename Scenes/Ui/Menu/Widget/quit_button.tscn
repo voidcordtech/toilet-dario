@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dk3rsvq0s8d03"]
+
+[ext_resource type="Script" uid="uid://bvpwa0h0one7t" path="res://Scripts/Ui/Widget/quit_button.gd" id="1_f5pyu"]
+
+[node name="QuitButton" type="Button" unique_id=1791349957]
+theme_type_variation = &"ButtonCaution"
+text = "Quit"
+script = ExtResource("1_f5pyu")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

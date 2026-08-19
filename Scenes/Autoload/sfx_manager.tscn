@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cipv76a6c4gq5"]
+
+[ext_resource type="Script" uid="uid://yu8uw3eyy1gj" path="res://Scripts/Autoload/sfx_manager.gd" id="1_1c570"]
+[ext_resource type="AudioStream" uid="uid://y2vf3segcfsg" path="res://Assets/Audio/Sfx/enemy_die.wav" id="2_jeq7x"]
+[ext_resource type="AudioStream" uid="uid://yd06p4sqwrq0" path="res://Assets/Audio/Sfx/enemy_hurt1.wav" id="3_ymrb5"]
+[ext_resource type="AudioStream" uid="uid://b5uqo3vkoh6vr" path="res://Assets/Audio/Sfx/enemy_hurt3.wav" id="4_0vmj7"]
+[ext_resource type="AudioStream" uid="uid://c2mm1pfvvfcv7" path="res://Assets/Audio/Sfx/enemy_hurt2.wav" id="5_ky3la"]
+[ext_resource type="AudioStream" uid="uid://cdce42b5avavv" path="res://Assets/Audio/Sfx/knife1.wav" id="6_1jan5"]
+[ext_resource type="AudioStream" uid="uid://bl0kpyv0pucfo" path="res://Assets/Audio/Sfx/knife2.wav" id="7_balf5"]
+[ext_resource type="AudioStream" uid="uid://ct8t23rxku2wr" path="res://Assets/Audio/Sfx/knife3.wav" id="8_hsnu1"]
+[ext_resource type="AudioStream" uid="uid://ced6p3fgg3kh8" path="res://Assets/Audio/Sfx/gun_re.wav" id="10_c72oh"]
+[ext_resource type="AudioStream" uid="uid://burik4em5tai5" path="res://Assets/Audio/Sfx/gun_reload.wav" id="11_frxsq"]
+[ext_resource type="AudioStream" uid="uid://b43xbmdm38wk6" path="res://Assets/Audio/Sfx/toilet_cover.wav" id="12_r87do"]
+[ext_resource type="AudioStream" uid="uid://ckwdtf7pdjwkk" path="res://Assets/Audio/Sfx/mushroom.wav" id="13_5grji"]
+[ext_resource type="AudioStream" uid="uid://hipshducnrcx" path="res://Assets/Audio/Sfx/break.wav" id="13_v4ybq"]
+[ext_resource type="AudioStream" uid="uid://earw3ixscuc8" path="res://Assets/Audio/Sfx/toilet_flush.wav" id="14_mtsb5"]
+[ext_resource type="AudioStream" uid="uid://c0c2ht1pygjwv" path="res://Assets/Audio/Sfx/water.wav" id="15_2gnjq"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ts6o5"]
+random_pitch = 1.1892071
+streams_count = 1
+stream_0/stream = ExtResource("2_jeq7x")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_01wm0"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("3_ymrb5")
+stream_1/stream = ExtResource("4_0vmj7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3xn6m"]
+streams_count = 1
+stream_0/stream = ExtResource("5_ky3la")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1c570"]
+streams_count = 3
+stream_0/stream = ExtResource("6_1jan5")
+stream_1/stream = ExtResource("7_balf5")
+stream_2/stream = ExtResource("8_hsnu1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_njqi5"]
+streams_count = 1
+stream_0/stream = ExtResource("13_v4ybq")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8almp"]
+streams_count = 1
+stream_0/stream = ExtResource("10_c72oh")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1uleq"]
+streams_count = 1
+stream_0/stream = ExtResource("11_frxsq")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mlbio"]
+streams_count = 1
+stream_0/stream = ExtResource("12_r87do")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q2ae8"]
+random_pitch = 1.3348398
+streams_count = 1
+stream_0/stream = ExtResource("13_5grji")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fu1vc"]
+streams_count = 1
+stream_0/stream = ExtResource("14_mtsb5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dtsuu"]
+streams_count = 1
+stream_0/stream = ExtResource("15_2gnjq")
+
+[node name="SfxManager" type="Node" unique_id=465620568]
+script = ExtResource("1_1c570")
+
+[node name="EnemyDieSfx" type="AudioStreamPlayer" parent="." unique_id=1424140040]
+stream = SubResource("AudioStreamRandomizer_ts6o5")
+volume_db = -5.0
+max_polyphony = 10
+bus = &"Sfx"
+
+[node name="EnemyHurtSfx" type="AudioStreamPlayer" parent="." unique_id=1157336894]
+stream = SubResource("AudioStreamRandomizer_01wm0")
+max_polyphony = 10
+bus = &"Sfx"
+
+[node name="RifleShootSfx" type="AudioStreamPlayer" parent="." unique_id=1990650492]
+stream = SubResource("AudioStreamRandomizer_3xn6m")
+max_polyphony = 10
+bus = &"Sfx"
+
+[node name="KnifeSfx" type="AudioStreamPlayer" parent="." unique_id=1120609480]
+stream = SubResource("AudioStreamRandomizer_1c570")
+volume_db = -5.0
+max_polyphony = 10
+bus = &"Sfx"
+
+[node name="BreakBrickSfx" type="AudioStreamPlayer" parent="." unique_id=2103053200]
+stream = SubResource("AudioStreamRandomizer_njqi5")
+volume_db = -10.0
+max_polyphony = 10
+bus = &"Sfx"
+
+[node name="GunReSfx" type="AudioStreamPlayer" parent="." unique_id=1595333032]
+stream = SubResource("AudioStreamRandomizer_8almp")
+bus = &"Sfx"
+
+[node name="GunReloadSfx" type="AudioStreamPlayer" parent="." unique_id=782068111]
+stream = SubResource("AudioStreamRandomizer_1uleq")
+volume_db = -5.0
+bus = &"Sfx"
+
+[node name="ToiletCoverSfx" type="AudioStreamPlayer" parent="." unique_id=1998372659]
+stream = SubResource("AudioStreamRandomizer_mlbio")
+volume_db = 4.0
+bus = &"Sfx"
+
+[node name="MushroomSfx" type="AudioStreamPlayer" parent="." unique_id=2017936541]
+stream = SubResource("AudioStreamRandomizer_q2ae8")
+volume_db = -7.0
+pitch_scale = 1.4
+max_polyphony = 10
+bus = &"Sfx"
+
+[node name="ToiletFlushSfx" type="AudioStreamPlayer" parent="." unique_id=1194233132]
+stream = SubResource("AudioStreamRandomizer_fu1vc")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="WaterSfx" type="AudioStreamPlayer" parent="." unique_id=1334493835]
+stream = SubResource("AudioStreamRandomizer_dtsuu")
+volume_db = -4.0
+bus = &"Sfx"

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dt1mhpkvt7w3c"]
+
+[ext_resource type="PackedScene" uid="uid://bm8vqurekiyvp" path="res://Assets/Blender/Tileset/tileset.blend" id="1_epxfo"]
+
+[node name="tileset" type="Node3D" unique_id=1375904169]
+
+[node name="tileset" parent="." unique_id=1139238533 instance=ExtResource("1_epxfo")]
+
+[editable path="tileset"]

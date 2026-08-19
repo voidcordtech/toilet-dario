@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b814ankdqpbah"]
+
+[ext_resource type="PackedScene" uid="uid://b5w3t7gvkbbjk" path="res://Scenes/Ui/Menu/pause_menu.tscn" id="1_ky6le"]
+[ext_resource type="Script" uid="uid://p76eanq40o11" path="res://Scripts/Ui/menu_manager.gd" id="1_msne3"]
+[ext_resource type="PackedScene" uid="uid://ddch0oflr2ngc" path="res://Scenes/Ui/Menu/settings_menu.tscn" id="2_0j425"]
+[ext_resource type="PackedScene" uid="uid://52jjgusl6auc" path="res://Scenes/Ui/Menu/dead_menu.tscn" id="4_y6sjm"]
+[ext_resource type="PackedScene" uid="uid://doewvubok0hg6" path="res://Scenes/Ui/Menu/win_menu.tscn" id="5_ixfc1"]
+
+[node name="MenuManager" type="CanvasLayer" unique_id=973172635]
+process_mode = 3
+layer = 2
+script = ExtResource("1_msne3")
+
+[node name="PauseMenu" parent="." unique_id=1356084122 node_paths=PackedStringArray("menu_manager") instance=ExtResource("1_ky6le")]
+menu_manager = NodePath("..")
+
+[node name="SettingsMenu" parent="." unique_id=1568261048 instance=ExtResource("2_0j425")]
+
+[node name="DeadMenu" parent="." unique_id=841495780 instance=ExtResource("4_y6sjm")]
+
+[node name="WinMenu" parent="." unique_id=777424606 instance=ExtResource("5_ixfc1")]

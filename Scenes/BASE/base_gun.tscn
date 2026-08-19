@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://be5a4neydw32d"]
+
+[ext_resource type="Script" uid="uid://8tnxte37x2a2" path="res://Scripts/base_gun.gd" id="1_oqrbh"]
+[ext_resource type="Texture2D" uid="uid://1gnfo8brik1i" path="res://addons/kenney_particle_pack/star_07.png" id="2_il3xh"]
+[ext_resource type="PackedScene" uid="uid://swh4xsjeii0r" path="res://Components/Scenes/interactable_box_component.tscn" id="3_c2p4w"]
+
+[sub_resource type="Gradient" id="Gradient_c2p4w"]
+offsets = PackedFloat32Array(0, 0.19955654, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1kmc"]
+gradient = SubResource("Gradient_c2p4w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6a7g2"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_n1kmc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkgv7"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9966555, 1, 0.3585075, 1)
+albedo_texture = ExtResource("2_il3xh")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g2e7y"]
+material = SubResource("StandardMaterial3D_kkgv7")
+size = Vector2(0.5, 0.5)
+orientation = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8kc3h"]
+
+[node name="BaseGun" type="Node3D" unique_id=558922747 node_paths=PackedStringArray("interact_box")]
+script = ExtResource("1_oqrbh")
+interact_box = NodePath("InteractableBoxComponent")
+
+[node name="Muzzle" type="Marker3D" parent="." unique_id=1631163333]
+
+[node name="MuzzleFlash" type="GPUParticles3D" parent="Muzzle" unique_id=1351843701]
+transform = Transform3D(-1, 3.821371e-15, 8.742278e-08, -3.821371e-15, 1, -8.742278e-08, -8.742278e-08, -8.742278e-08, -1, 0, 0, -0.1)
+emitting = false
+amount = 1
+lifetime = 0.25
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6a7g2")
+draw_pass_1 = SubResource("PlaneMesh_g2e7y")
+
+[node name="InteractableBoxComponent" parent="." unique_id=329235206 instance=ExtResource("3_c2p4w")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableBoxComponent" unique_id=139196029]
+shape = SubResource("SphereShape3D_8kc3h")

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bkd4ub3yu3v4d"]
+
+[ext_resource type="PackedScene" uid="uid://bdf0q54ii1c8p" path="res://Assets/Blender/Mushroom/mushroom.blend" id="1_2r5i3"]
+[ext_resource type="Script" uid="uid://b7p4ultmx21yu" path="res://Scripts/mushroom.gd" id="1_e0au5"]
+[ext_resource type="PackedScene" uid="uid://dvc21vwi7un4t" path="res://Components/Scenes/floating_component.tscn" id="2_0q7t7"]
+[ext_resource type="Texture2D" uid="uid://ce5gcfhtq808s" path="res://addons/kenney_particle_pack/star_08.png" id="3_8wxru"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kkgv7"]
+size = Vector2(0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnkjj"]
+transparency = 1
+albedo_color = Color(1, 0.95686275, 0.14117648, 1)
+albedo_texture = ExtResource("3_8wxru")
+emission_enabled = true
+emission = Color(1, 0.95686275, 0.14117648, 1)
+billboard_mode = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_upik1"]
+points = PackedVector3Array(-0.11288451, 0, -2.2098422e-05, -0.11071875, 0, -0.022033252, -0.11071875, 0, 0.02201116, -0.11288451, 0.47820517, -2.2098422e-05, -0.11071875, 0.47820517, -0.022033252, -0.10430988, 0, -0.04320462, -0.10430988, 0, 0.043182522, -0.11071875, 0.47820517, 0.02201116, -0.10430988, 0.47820517, -0.04320462, -0.093878895, 0, -0.062718526, -0.093878895, 0, 0.06269643, -0.10430988, 0.47820517, 0.043182522, -0.093878895, 0.47820517, -0.062718526, -0.079823576, 0, -0.079823576, -0.079823576, 0, 0.079801485, -0.093878895, 0.47820517, 0.06269643, -0.079823576, 0.47820517, -0.079823576, -0.062718526, 0, -0.093878895, -0.062718526, 0, 0.0938568, -0.079823576, 0.47820517, 0.079801485, -0.062718526, 0.47820517, -0.093878895, -0.04320462, 0, -0.10430988, -0.04320462, 0, 0.10428779, -0.062718526, 0.47820517, 0.0938568, -0.04320462, 0.47820517, -0.10430988, -0.022033252, 0, -0.11071875, -0.022033252, 0, 0.11069666, -0.04320462, 0.47820517, 0.10428779, -0.022033252, 0.47820517, -0.11071875, -2.2098422e-05, 0, -0.11288451, -2.2098422e-05, 0, 0.11286241, -0.022033252, 0.47820517, 0.11069666, -2.2098422e-05, 0.47820517, -0.11288451, 0.02201116, 0, -0.11071875, 0.02201116, 0, 0.11069666, -2.2098422e-05, 0.47820517, 0.11286241, 0.02201116, 0.47820517, -0.11071875, 0.043182522, 0, -0.10430988, 0.043182522, 0, 0.10428779, 0.02201116, 0.47820517, 0.11069666, 0.043182522, 0.47820517, -0.10430988, 0.06269643, 0, -0.093878895, 0.06269643, 0, 0.0938568, 0.043182522, 0.47820517, 0.10428779, 0.06269643, 0.47820517, -0.093878895, 0.079801485, 0, -0.079823576, 0.079801485, 0, 0.079801485, 0.06269643, 0.47820517, 0.0938568, 0.079801485, 0.47820517, -0.079823576, 0.0938568, 0, -0.062718526, 0.0938568, 0, 0.06269643, 0.079801485, 0.47820517, 0.079801485, 0.0938568, 0.47820517, -0.062718526, 0.10428779, 0, -0.04320462, 0.10428779, 0, 0.043182522, 0.0938568, 0.47820517, 0.06269643, 0.10428779, 0.47820517, -0.04320462, 0.11069666, 0, -0.022033252, 0.11069666, 0, 0.02201116, 0.10428779, 0.47820517, 0.043182522, 0.11069666, 0.47820517, -0.022033252, 0.11286241, 0, -2.2098422e-05, 0.11069666, 0.47820517, 0.02201116, 0.11286241, 0.47820517, -2.2098422e-05)
+
+[node name="Mushroom" type="RigidBody3D" unique_id=57110637]
+collision_layer = 64
+lock_rotation = true
+script = ExtResource("1_e0au5")
+
+[node name="Mesh" type="Node3D" parent="." unique_id=633865498]
+
+[node name="mushroom" parent="Mesh" unique_id=460628522 instance=ExtResource("1_2r5i3")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Star" type="MeshInstance3D" parent="Mesh" unique_id=307114057]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.1473876, 0)
+mesh = SubResource("QuadMesh_kkgv7")
+surface_material_override/0 = SubResource("StandardMaterial3D_dnkjj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=920807006]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_upik1")
+
+[node name="FloatingComponent" parent="." unique_id=1399224699 node_paths=PackedStringArray("target_mesh") instance=ExtResource("2_0q7t7")]
+target_mesh = NodePath("../Mesh")
+
+[editable path="Mesh/mushroom"]

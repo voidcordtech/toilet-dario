@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b5w3t7gvkbbjk"]
+
+[ext_resource type="Script" uid="uid://qbvpmh1cp5sy" path="res://Scripts/Ui/pause_menu.gd" id="1_6pfc5"]
+[ext_resource type="PackedScene" uid="uid://ct36am7pq7mcr" path="res://Scenes/Ui/Menu/Widget/header.tscn" id="2_ucuiw"]
+[ext_resource type="PackedScene" uid="uid://ctybepfjnalgp" path="res://Scenes/Ui/Menu/Widget/restart_button.tscn" id="3_mn7bv"]
+[ext_resource type="PackedScene" uid="uid://ctu8m5j4qf3ts" path="res://Scenes/Ui/Menu/Widget/main_menu_button.tscn" id="4_73ce0"]
+
+[node name="PauseMenu" type="Control" unique_id=1356084122]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6pfc5")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Window" type="PanelContainer" parent="." unique_id=624923738]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelWindow"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window" unique_id=519924241]
+layout_mode = 2
+
+[node name="Header" parent="Window/VBoxContainer" unique_id=1345164072 instance=ExtResource("2_ucuiw")]
+layout_mode = 2
+title = "Paused"
+
+[node name="View" type="PanelContainer" parent="Window/VBoxContainer" unique_id=854083834]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PanelView"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View" unique_id=1940556787]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer" unique_id=1546353447]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ResumeButton" type="Button" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=1205956731]
+layout_mode = 2
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=2092314919]
+layout_mode = 2
+text = "Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=1031289760]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RestartButton" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=1100113352 instance=ExtResource("3_mn7bv")]
+layout_mode = 2
+
+[node name="MainMenuButton" parent="Window/VBoxContainer/View/MarginContainer/VBoxContainer" unique_id=1531170369 instance=ExtResource("4_73ce0")]
+layout_mode = 2
+
+[connection signal="pressed" from="Window/VBoxContainer/View/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Window/VBoxContainer/View/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

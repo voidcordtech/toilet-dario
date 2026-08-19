@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://vnvqjv7h1dpf"]
+
+[ext_resource type="Script" uid="uid://c71mcopwa1n46" path="res://Scripts/BASE/base_enemy.gd" id="1_xnevn"]
+[ext_resource type="PackedScene" uid="uid://ckvalkky66rut" path="res://Components/Scenes/health_component.tscn" id="2_77uqt"]
+[ext_resource type="PackedScene" uid="uid://bhxwkbfvl48ht" path="res://Assets/Blender/Knife/knife.blend" id="3_hq467"]
+[ext_resource type="Shader" uid="uid://ve3vr4p8jhit" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="4_sohix"]
+[ext_resource type="Shader" uid="uid://jb7xd1xwiyd6" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="5_m4u8g"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrail-main/defaults/texture.tres" id="6_m4u8g"]
+[ext_resource type="Script" uid="uid://dvavjgb1j3um5" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="6_tqjrj"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uplx5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8kc3h"]
+radius = 7.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w386c"]
+shader = ExtResource("4_sohix")
+
+[sub_resource type="Gradient" id="Gradient_3x6qv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_biban"]
+gradient = SubResource("Gradient_3x6qv")
+
+[sub_resource type="Curve" id="Curve_avxee"]
+bake_resolution = 16
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_op5fj"]
+curve = SubResource("Curve_avxee")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3em46"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_m4u8g")
+shader_parameter/tex = ExtResource("6_m4u8g")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_biban")
+shader_parameter/curve = SubResource("CurveTexture_op5fj")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+
+[sub_resource type="QuadMesh" id="QuadMesh_chcml"]
+material = SubResource("ShaderMaterial_3em46")
+
+[sub_resource type="Animation" id="Animation_uplx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnifePivot/knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.3, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnifePivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnifePivot/knife:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnifePivot/knife/GPUTrail3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hq467"]
+resource_name = "attack"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnifePivot/knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.2, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnifePivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.1961461, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.3161256, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnifePivot/knife:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 1.5707964, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnifePivot/knife/GPUTrail3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rnqex"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnifePivot/knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.3, 0, 0), Vector3(0.3, 0.1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnifePivot/knife:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnifePivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnifePivot/knife/GPUTrail3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnqex"]
+_data = {
+&"RESET": SubResource("Animation_uplx5"),
+&"attack": SubResource("Animation_hq467"),
+&"idle": SubResource("Animation_rnqex")
+}
+
+[node name="BaseEnemy" type="CharacterBody3D" unique_id=783847179 node_paths=PackedStringArray("health_component")]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_xnevn")
+health_component = NodePath("HealthComponent")
+
+[node name="HealthComponent" parent="." unique_id=345089467 instance=ExtResource("2_77uqt")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=118989187]
+libraries/ = SubResource("AnimationLibrary_uplx5")
+
+[node name="VisionBox" type="Area3D" parent="." unique_id=633220811]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionBox" unique_id=265467331]
+shape = SubResource("SphereShape3D_8kc3h")
+
+[node name="NavAgent" type="NavigationAgent3D" parent="." unique_id=496602468]
+
+[node name="attack_cd" type="Timer" parent="." unique_id=1269067909]
+
+[node name="AttackRay" type="RayCast3D" parent="." unique_id=848258585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63402736, 0)
+target_position = Vector3(0, 0, -0.5)
+collision_mask = 2
+
+[node name="KnifePivot" type="Node3D" parent="." unique_id=749333451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
+
+[node name="knife" parent="KnifePivot" unique_id=1188334317 instance=ExtResource("3_hq467")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.3, 0, 0)
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="KnifePivot/knife" unique_id=2099387827]
+transform = Transform3D(0.20499998, 0, 1.110223e-16, 0, 0.20499998, -8.6042284e-16, 0, 9.15934e-16, 0.205, -0.0065574944, 0.49572802, -0.093578756)
+visible = false
+amount = 30
+lifetime = 30.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ShaderMaterial_w386c")
+draw_pass_1 = SubResource("QuadMesh_chcml")
+script = ExtResource("6_tqjrj")
+length = 30
+length_seconds = 0.5
+color_ramp = SubResource("GradientTexture1D_biban")
+curve = SubResource("CurveTexture_op5fj")
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://dvavjgb1j3um5"
+
+[node name="KnifeAnimation" type="AnimationPlayer" parent="." unique_id=1366736013]
+libraries/ = SubResource("AnimationLibrary_rnqex")
+autoplay = &"idle"
+
+[node name="HeadHurtBox" type="Area3D" parent="." unique_id=22452755]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Head" type="Marker3D" parent="." unique_id=1750130201]
+
+[connection signal="body_entered" from="VisionBox" to="." method="_on_vision_box_body_entered"]
+[connection signal="body_exited" from="VisionBox" to="." method="_on_vision_box_body_exited"]
+[connection signal="timeout" from="attack_cd" to="." method="_on_attack_cd_timeout"]

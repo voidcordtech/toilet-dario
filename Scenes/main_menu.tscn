@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://d2gs2m80pck2t"]
+
+[ext_resource type="Script" uid="uid://c53a8p2ai53t3" path="res://Scripts/Ui/main_menu.gd" id="1_trj04"]
+[ext_resource type="PackedScene" uid="uid://dpl86eksawnsq" path="res://Scenes/toilet.tscn" id="2_16hvj"]
+[ext_resource type="MeshLibrary" uid="uid://b8tyitdgp0csb" path="res://Resources/tileset.tres" id="3_vr1f0"]
+[ext_resource type="PackedScene" uid="uid://2ntwbksq1dyp" path="res://Scenes/water.tscn" id="4_t1dhk"]
+[ext_resource type="PackedScene" uid="uid://b6gfexi6uufie" path="res://Scenes/enemy_john.tscn" id="5_5egv6"]
+[ext_resource type="PackedScene" uid="uid://duupnumxwngcv" path="res://Scenes/enemy_johnson.tscn" id="6_vtepg"]
+[ext_resource type="PackedScene" uid="uid://dk3rsvq0s8d03" path="res://Scenes/Ui/Menu/Widget/quit_button.tscn" id="7_8dnnj"]
+[ext_resource type="PackedScene" uid="uid://ddch0oflr2ngc" path="res://Scenes/Ui/Menu/settings_menu.tscn" id="8_m3bi6"]
+[ext_resource type="PackedScene" uid="uid://f42ucb6h3cs6" path="res://Scenes/Ui/about_menu.tscn" id="9_wyh8j"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2kw1n"]
+vertices = PackedVector3Array(-0.45000005, 0.01999998, -28.7, -0.14999986, 0.01999998, -28.7, -0.20000005, 0.01999998, -29.25, -0.64999986, 0.01999998, -28.5, -3.75, 0.01999998, -29.25, -3.75, 0.01999998, -27.4, -0.64999986, 0.01999998, -27.4, 0.4500003, 0.01999998, -28.7, 0.5999999, 0.01999998, -28.6, 2.75, 0.01999998, -29.25, 0.6500001, 0.01999998, -27.35, 2.75, 0.01999998, -27.3, 0.5, 0.01999998, -26.9, 0.4500003, 0.01999998, -19.599998, 0.6500001, 0.01999998, -19.349998, 2.75, 0.01999998, -19.349998, 0.20000029, 0.01999998, -26.75, -0.45000005, 0.01999998, -19.599998, -0.20000005, 0.01999998, -26.75, -0.5, 0.01999998, -26.95, -3.75, 0.01999998, -19.349998, -0.64999986, 0.01999998, -19.349998, -3.75, 0.01999998, -18.3, -0.64999986, 0.01999998, -18.3, 0.6500001, 0.01999998, -18.25, 2.75, 0.01999998, -18.2, -0.5, 0.01999998, -17.849998, 0, 0.01999998, -17.65, -3.75, 0.01999998, -13.75, 0, 0.01999998, -13.75, 0.5, 0.01999998, -17.8, 2.75, 0.01999998, -13.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(6, 5, 3), PackedInt32Array(3, 5, 4), PackedInt32Array(7, 1, 2), PackedInt32Array(7, 2, 8), PackedInt32Array(8, 2, 9), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 9), PackedInt32Array(12, 10, 11), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(15, 16, 12), PackedInt32Array(15, 12, 11), PackedInt32Array(18, 16, 17), PackedInt32Array(17, 16, 13), PackedInt32Array(5, 6, 19), PackedInt32Array(21, 20, 17), PackedInt32Array(17, 20, 18), PackedInt32Array(18, 20, 19), PackedInt32Array(19, 20, 5), PackedInt32Array(20, 21, 22), PackedInt32Array(22, 21, 23), PackedInt32Array(14, 15, 24), PackedInt32Array(24, 15, 25), PackedInt32Array(22, 23, 26), PackedInt32Array(26, 27, 22), PackedInt32Array(22, 27, 29), PackedInt32Array(22, 29, 28), PackedInt32Array(30, 24, 25), PackedInt32Array(30, 25, 27), PackedInt32Array(27, 25, 29), PackedInt32Array(29, 25, 31)]
+cell_size = 0.05
+cell_height = 0.01
+agent_height = 0.8
+agent_radius = 0.25
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_te0jg"]
+
+[node name="MainMenu" type="Node3D" unique_id=1214175054]
+script = ExtResource("1_trj04")
+
+[node name="ObjectsHolder" type="Node3D" parent="." unique_id=744837131]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="ObjectsHolder" unique_id=863178685]
+navigation_mesh = SubResource("NavigationMesh_2kw1n")
+
+[node name="Toilets" type="Node3D" parent="ObjectsHolder/NavigationRegion3D" unique_id=1700819395]
+
+[node name="Toilet2" parent="ObjectsHolder/NavigationRegion3D/Toilets" unique_id=1679286923 instance=ExtResource("2_16hvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.6386)
+
+[node name="Toilet5" parent="ObjectsHolder/NavigationRegion3D/Toilets" unique_id=1366089719 instance=ExtResource("2_16hvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.733206)
+
+[node name="GridMap" type="GridMap" parent="ObjectsHolder/NavigationRegion3D" unique_id=1876376580]
+mesh_library = ExtResource("3_vr1f0")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65528, 65477, 0, 65528, 65478, 0, 65528, 65479, 0, 65528, 65480, 0, 65528, 65481, 0, 65528, 65482, 0, 65528, 65483, 0, 65528, 65484, 0, 65528, 65485, 0, 65528, 65486, 0, 65528, 65487, 0, 65528, 65488, 0, 65528, 65489, 0, 65528, 65490, 0, 65528, 65491, 0, 65528, 65492, 0, 65528, 65493, 0, 65528, 65494, 0, 65528, 65495, 0, 65528, 65496, 0, 65528, 65497, 0, 65528, 65498, 0, 65528, 65499, 0, 65528, 65500, 0, 65528, 65501, 0, 65528, 65502, 0, 65528, 65503, 0, 65528, 65504, 0, 65528, 65505, 0, 65528, 65506, 0, 65528, 65507, 0, 65528, 65508, 0, 65529, 65477, 0, 65529, 65478, 0, 65529, 65479, 0, 65529, 65480, 0, 65529, 65481, 0, 65529, 65482, 0, 65529, 65483, 0, 65529, 65484, 0, 65529, 65485, 0, 65529, 65486, 0, 65529, 65487, 0, 65529, 65488, 0, 65529, 65489, 0, 65529, 65490, 0, 65529, 65491, 0, 65529, 65492, 0, 65529, 65493, 0, 65529, 65494, 0, 65529, 65495, 0, 65529, 65496, 0, 65529, 65497, 0, 65529, 65498, 0, 65529, 65499, 0, 65529, 65500, 0, 65529, 65501, 0, 65529, 65502, 0, 65529, 65503, 0, 65529, 65504, 0, 65529, 65505, 0, 65529, 65506, 0, 65529, 65507, 0, 65529, 65508, 0, 65530, 65477, 0, 65530, 65478, 0, 65530, 65479, 0, 65530, 65480, 0, 65530, 65481, 0, 65530, 65482, 0, 65530, 65483, 0, 65530, 65484, 0, 65530, 65485, 0, 65530, 65486, 0, 65530, 65487, 0, 65530, 65488, 0, 65530, 65489, 0, 65530, 65490, 0, 65530, 65491, 0, 65530, 65492, 0, 65530, 65493, 0, 65530, 65494, 0, 65530, 65495, 0, 65530, 65496, 0, 65530, 65497, 0, 65530, 65498, 0, 65530, 65499, 0, 65530, 65500, 0, 65530, 65501, 0, 65530, 65502, 0, 65530, 65503, 0, 65530, 65504, 0, 65530, 65505, 0, 65530, 65506, 0, 65530, 65507, 0, 65530, 65508, 0, 65531, 65477, 0, 65531, 65478, 0, 65531, 65479, 0, 65531, 65480, 0, 65531, 65481, 0, 65531, 65482, 0, 65531, 65483, 0, 65531, 65484, 0, 65531, 65485, 0, 65531, 65486, 0, 65531, 65487, 0, 65531, 65488, 0, 65531, 65489, 0, 65531, 65490, 0, 65531, 65491, 0, 65531, 65492, 0, 65531, 65493, 0, 65531, 65494, 0, 65531, 65495, 0, 65531, 65496, 0, 65531, 65497, 0, 65531, 65498, 0, 65531, 65499, 0, 65531, 65500, 0, 65531, 65501, 0, 65531, 65502, 0, 65531, 65503, 0, 65531, 65504, 0, 65531, 65505, 0, 65531, 65506, 0, 65531, 65507, 0, 65531, 65508, 0, 65532, 65477, 0, 65532, 65478, 0, 65532, 65479, 0, 65532, 65480, 0, 65532, 65481, 0, 65532, 65482, 0, 65532, 65483, 0, 65532, 65484, 0, 65532, 65485, 0, 65532, 65486, 0, 65532, 65487, 0, 65532, 65488, 0, 65532, 65489, 0, 65532, 65490, 0, 65532, 65491, 0, 65532, 65492, 0, 65532, 65493, 0, 65532, 65494, 0, 65532, 65495, 0, 65532, 65496, 0, 65532, 65497, 0, 65532, 65498, 0, 65532, 65499, 0, 65532, 65500, 0, 65532, 65501, 0, 65532, 65502, 0, 65532, 65503, 0, 65532, 65504, 0, 65532, 65505, 0, 65532, 65506, 0, 65532, 65507, 0, 65532, 65508, 0, 65533, 65477, 0, 65533, 65478, 0, 65533, 65479, 0, 65533, 65480, 0, 65533, 65481, 0, 65533, 65482, 0, 65533, 65483, 0, 65533, 65484, 0, 65533, 65485, 0, 65533, 65486, 0, 65533, 65487, 0, 65533, 65488, 0, 65533, 65489, 0, 65533, 65490, 0, 65533, 65491, 0, 65533, 65492, 0, 65533, 65493, 0, 65533, 65494, 0, 65533, 65495, 0, 65533, 65496, 0, 65533, 65497, 0, 65533, 65498, 0, 65533, 65499, 0, 65533, 65500, 0, 65533, 65501, 0, 65533, 65502, 0, 65533, 65503, 0, 65533, 65504, 0, 65533, 65505, 0, 65533, 65506, 0, 65533, 65507, 0, 65533, 65508, 0, 65534, 65477, 0, 65534, 65478, 0, 65534, 65479, 0, 65534, 65480, 0, 65534, 65481, 0, 65534, 65482, 0, 65534, 65483, 0, 65534, 65484, 0, 65534, 65485, 0, 65534, 65486, 0, 65534, 65487, 0, 65534, 65488, 0, 65534, 65489, 0, 65534, 65490, 0, 65534, 65491, 0, 65534, 65492, 0, 65534, 65493, 0, 65534, 65494, 0, 65534, 65495, 0, 65534, 65496, 0, 65534, 65497, 0, 65534, 65498, 0, 65534, 65499, 0, 65534, 65500, 0, 65534, 65501, 0, 65534, 65502, 0, 65534, 65503, 0, 65534, 65504, 0, 65534, 65505, 0, 65534, 65506, 0, 65534, 65507, 0, 65534, 65508, 0, 65535, 65477, 0, 65535, 65478, 0, 65535, 65479, 0, 65535, 65480, 0, 65535, 65481, 0, 65535, 65482, 0, 65535, 65483, 0, 65535, 65484, 0, 65535, 65485, 0, 65535, 65486, 0, 65535, 65487, 0, 65535, 65488, 0, 65535, 65489, 0, 65535, 65490, 0, 65535, 65491, 0, 65535, 65492, 0, 65535, 65493, 0, 65535, 65494, 0, 65535, 65495, 0, 65535, 65496, 0, 65535, 65497, 0, 65535, 65498, 0, 65535, 65499, 0, 65535, 65500, 0, 65535, 65501, 0, 65535, 65502, 0, 65535, 65503, 0, 65535, 65504, 0, 65535, 65505, 0, 65535, 65506, 0, 65535, 65507, 0, 65535, 65508, 0, 0, 65477, 0, 0, 65478, 0, 0, 65479, 0, 0, 65480, 0, 0, 65481, 0, 0, 65482, 0, 0, 65483, 0, 0, 65484, 0, 0, 65485, 0, 0, 65486, 0, 0, 65487, 0, 0, 65488, 0, 0, 65489, 0, 0, 65490, 0, 0, 65491, 0, 0, 65492, 0, 0, 65493, 0, 0, 65494, 0, 0, 65495, 0, 0, 65496, 0, 0, 65497, 0, 0, 65498, 0, 0, 65499, 0, 0, 65500, 0, 0, 65501, 0, 0, 65502, 0, 0, 65503, 0, 0, 65504, 0, 0, 65505, 0, 0, 65506, 0, 0, 65507, 0, 0, 65508, 0, 1, 65477, 0, 1, 65478, 0, 1, 65479, 0, 1, 65480, 0, 1, 65481, 0, 1, 65482, 0, 1, 65483, 0, 1, 65484, 0, 1, 65485, 0, 1, 65486, 0, 1, 65487, 0, 1, 65488, 0, 1, 65489, 0, 1, 65490, 0, 1, 65491, 0, 1, 65492, 0, 1, 65493, 0, 1, 65494, 0, 1, 65495, 0, 1, 65496, 0, 1, 65497, 0, 1, 65498, 0, 1, 65499, 0, 1, 65500, 0, 1, 65501, 0, 1, 65502, 0, 1, 65503, 0, 1, 65504, 0, 1, 65505, 0, 1, 65506, 0, 1, 65507, 0, 1, 65508, 0, 2, 65477, 0, 2, 65478, 0, 2, 65479, 0, 2, 65480, 0, 2, 65481, 0, 2, 65482, 0, 2, 65483, 0, 2, 65484, 0, 2, 65485, 0, 2, 65486, 0, 2, 65487, 0, 2, 65488, 0, 2, 65489, 0, 2, 65490, 0, 2, 65491, 0, 2, 65492, 0, 2, 65493, 0, 2, 65494, 0, 2, 65495, 0, 2, 65496, 0, 2, 65497, 0, 2, 65498, 0, 2, 65499, 0, 2, 65500, 0, 2, 65501, 0, 2, 65502, 0, 2, 65503, 0, 2, 65504, 0, 2, 65505, 0, 2, 65506, 0, 2, 65507, 0, 2, 65508, 0, 3, 65477, 0, 3, 65478, 0, 3, 65479, 0, 3, 65480, 0, 3, 65481, 0, 3, 65482, 0, 3, 65483, 0, 3, 65484, 0, 3, 65485, 0, 3, 65486, 0, 3, 65487, 0, 3, 65488, 0, 3, 65489, 0, 3, 65490, 0, 3, 65491, 0, 3, 65492, 0, 3, 65493, 0, 3, 65494, 0, 3, 65495, 0, 3, 65496, 0, 3, 65497, 0, 3, 65498, 0, 3, 65499, 0, 3, 65500, 0, 3, 65501, 0, 3, 65502, 0, 3, 65503, 0, 3, 65504, 0, 3, 65505, 0, 3, 65506, 0, 3, 65507, 0, 3, 65508, 0, 4, 65477, 0, 4, 65478, 0, 4, 65479, 0, 4, 65480, 0, 4, 65481, 0, 4, 65482, 0, 4, 65483, 0, 4, 65484, 0, 4, 65485, 0, 4, 65486, 0, 4, 65487, 0, 4, 65488, 0, 4, 65489, 0, 4, 65490, 0, 4, 65491, 0, 4, 65492, 0, 4, 65493, 0, 4, 65494, 0, 4, 65495, 0, 4, 65496, 0, 4, 65497, 0, 4, 65498, 0, 4, 65499, 0, 4, 65500, 0, 4, 65501, 0, 4, 65502, 0, 4, 65503, 0, 4, 65504, 0, 4, 65505, 0, 4, 65506, 0, 4, 65507, 0, 4, 65508, 0, 5, 65477, 0, 5, 65478, 0, 5, 65479, 0, 5, 65480, 0, 5, 65481, 0, 5, 65482, 0, 5, 65483, 0, 5, 65484, 0, 5, 65485, 0, 5, 65486, 0, 5, 65487, 0, 5, 65488, 0, 5, 65489, 0, 5, 65490, 0, 5, 65491, 0, 5, 65492, 0, 5, 65493, 0, 5, 65494, 0, 5, 65495, 0, 5, 65496, 0, 5, 65497, 0, 5, 65498, 0, 5, 65499, 0, 5, 65500, 0, 5, 65501, 0, 5, 65502, 0, 5, 65503, 0, 5, 65504, 0, 5, 65505, 0, 5, 65506, 0, 5, 65507, 0, 5, 65508, 0, 262142, 65484, 3, 262142, 65502, 3)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="Water" parent="ObjectsHolder" unique_id=2094162112 instance=ExtResource("4_t1dhk")]
+transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, 70.986435, -1.1277201, 60.97553)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectsHolder/Water" unique_id=402634768]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, -0.0009999976, 0)
+shape = SubResource("WorldBoundaryShape3D_te0jg")
+
+[node name="EnemyHolder" type="Node3D" parent="." unique_id=1421414009]
+
+[node name="John" type="Node3D" parent="EnemyHolder" unique_id=1558623020]
+
+[node name="EnemyJohn" parent="EnemyHolder/John" unique_id=1917646918 instance=ExtResource("5_5egv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6154822, 0, -14.450756)
+
+[node name="EnemyJohn2" parent="EnemyHolder/John" unique_id=1956032568 instance=ExtResource("5_5egv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5015697, 0, -19.325813)
+
+[node name="EnemyJohn4" parent="EnemyHolder/John" unique_id=1377294873 instance=ExtResource("5_5egv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.129488, 0, -24.63726)
+
+[node name="EnemyJohn6" parent="EnemyHolder/John" unique_id=1118978215 instance=ExtResource("5_5egv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8633404, 0, -28.205633)
+
+[node name="Johnson" type="Node3D" parent="EnemyHolder" unique_id=84233663]
+
+[node name="EnemyJohnson" parent="EnemyHolder/Johnson" unique_id=519704004 instance=ExtResource("6_vtepg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05165863, 0, -14.955199)
+
+[node name="EnemyJohnson2" parent="EnemyHolder/Johnson" unique_id=1015190101 instance=ExtResource("6_vtepg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4834671, 0, -18.243885)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=895036523]
+transform = Transform3D(0.8433911, 0.27837095, -0.45956624, 0, 0.85532475, 0.518092, 0.53730017, -0.43695417, 0.7213733, -5.142726, 1.2638197, -15.712032)
+current = true
+
+[node name="HomeMenuUi" type="CanvasLayer" parent="." unique_id=337228149]
+
+[node name="Control" type="Control" parent="HomeMenuUi" unique_id=1867655446]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HomeMenuUi/Control" unique_id=20202299]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07447917
+anchor_top = 0.50555557
+anchor_right = 0.34791666
+anchor_bottom = 0.85925925
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomeMenuUi/Control/MarginContainer" unique_id=1810356347]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="HomeMenuUi/Control/MarginContainer/VBoxContainer" unique_id=172565449]
+layout_mode = 2
+theme_type_variation = &"LargeTitle"
+theme_override_font_sizes/font_size = 56
+text = "Toilet Dario"
+
+[node name="Play" type="Button" parent="HomeMenuUi/Control/MarginContainer/VBoxContainer" unique_id=98313175]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Play"
+
+[node name="Setting" type="Button" parent="HomeMenuUi/Control/MarginContainer/VBoxContainer" unique_id=264781811]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Setting"
+
+[node name="About" type="Button" parent="HomeMenuUi/Control/MarginContainer/VBoxContainer" unique_id=228576952]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "About"
+
+[node name="QuitButton" parent="HomeMenuUi/Control/MarginContainer/VBoxContainer" unique_id=1791349957 instance=ExtResource("7_8dnnj")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SettingsMenu" parent="HomeMenuUi" unique_id=1356084122 instance=ExtResource("8_m3bi6")]
+unique_name_in_owner = true
+visible = false
+
+[node name="AboutMenu" parent="HomeMenuUi" unique_id=225567781 instance=ExtResource("9_wyh8j")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="HomeMenuUi/Control/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HomeMenuUi/Control/MarginContainer/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="HomeMenuUi/Control/MarginContainer/VBoxContainer/About" to="." method="_on_about_pressed"]

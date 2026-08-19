@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cppni8vsiix5s"]
+
+[ext_resource type="Script" uid="uid://bvac75q7xhkcl" path="res://Scripts/Autoload/debug_god.gd" id="1_ndcyi"]
+
+[node name="DebugGod" type="Node" unique_id=1745961071]
+script = ExtResource("1_ndcyi")

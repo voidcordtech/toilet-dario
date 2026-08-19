@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dpl86eksawnsq"]
+
+[ext_resource type="PackedScene" uid="uid://bm28bgln3ty0r" path="res://Models/Toilet/toilet.glb" id="1_unj8y"]
+[ext_resource type="Script" uid="uid://i6kyj0j3mkur" path="res://Scripts/toilet.gd" id="1_ygave"]
+[ext_resource type="PackedScene" uid="uid://swh4xsjeii0r" path="res://Components/Scenes/interact_box_component.tscn" id="3_b53y0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unj8y"]
+size = Vector3(0.59350586, 0.69973934, 1.2815373)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygave"]
+size = Vector3(0.7519531, 0.6591573, 0.3143131)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wm8sv"]
+size = Vector3(0.9771715, 1.4205394, 1.396801)
+
+[node name="Toilet" type="RigidBody3D" unique_id=1132972576]
+script = ExtResource("1_ygave")
+
+[node name="toilet" parent="." unique_id=632160861 instance=ExtResource("1_unj8y")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1962077625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007184446, 0.34986967, -0.019707918)
+shape = SubResource("BoxShape3D_unj8y")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1019454889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007184446, 1.0707374, -0.52161264)
+shape = SubResource("BoxShape3D_ygave")
+
+[node name="InteractBoxComponent" parent="." unique_id=329235206 instance=ExtResource("3_b53y0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractBoxComponent" unique_id=670468186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074886084, 0.7102697, 0.0041315556)
+shape = SubResource("BoxShape3D_wm8sv")
+
+[node name="TeleportPosition" type="Marker3D" parent="." unique_id=1107864514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005117893, 0.14842069, 0.102359146)
+
+[editable path="toilet"]

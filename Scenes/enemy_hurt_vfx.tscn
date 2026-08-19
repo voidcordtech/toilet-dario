@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cjhgitnhl8oo"]
+
+[ext_resource type="Texture2D" uid="uid://ce5gcfhtq808s" path="res://addons/kenney_particle_pack/star_08.png" id="1_iucak"]
+
+[sub_resource type="Gradient" id="Gradient_ppt4q"]
+colors = PackedColorArray(1, 1, 0.39607844, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0anfb"]
+gradient = SubResource("Gradient_ppt4q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b51v3"]
+use_rotation_3d = true
+rotation_3d_min = Vector3(0, 0, 0)
+rotation_3d_max = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.19999999
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_0anfb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocj6g"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_iucak")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_xa2gl"]
+material = SubResource("StandardMaterial3D_ocj6g")
+
+[node name="EnemyHurtVfx" type="GPUParticles3D" unique_id=307715739]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_b51v3")
+draw_pass_1 = SubResource("QuadMesh_xa2gl")

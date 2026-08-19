@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SfxStats" format=3 uid="uid://7ns2bcquomv8"]
+
+[ext_resource type="Script" uid="uid://hskyx6kdcrob" path="res://Classes/sfx_stats.gd" id="1_k8255"]
+[ext_resource type="AudioStream" uid="uid://yd06p4sqwrq0" path="res://Assets/Audio/Sfx/enemy_hurt1.wav" id="2_xyh72"]
+[ext_resource type="AudioStream" uid="uid://b5uqo3vkoh6vr" path="res://Assets/Audio/Sfx/enemy_hurt3.wav" id="4_10umd"]
+
+[resource]
+script = ExtResource("1_k8255")
+streams = Array[AudioStream]([ExtResource("2_xyh72"), ExtResource("4_10umd")])
+pitch_variation = 0.3
+metadata/_custom_type_script = "uid://hskyx6kdcrob"

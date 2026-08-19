@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cscvhreqi3pe8"]
+
+[ext_resource type="FontFile" uid="uid://g6i2uap4a0or" path="res://Assets/Fonts/aileron/Aileron-Black.otf" id="1_2sjvx"]
+[ext_resource type="Script" uid="uid://d1e5ngx5kn514" path="res://Scripts/pop_score.gd" id="1_5q8ih"]
+
+[node name="PopScore" type="Label3D" unique_id=1573244685]
+billboard = 1
+no_depth_test = true
+text = "+ 100"
+font = ExtResource("1_2sjvx")
+script = ExtResource("1_5q8ih")
+target_height = 1.0

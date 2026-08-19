@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xaydwdy88osd"]
+
+[ext_resource type="Script" uid="uid://ds5hgdyuiydwq" path="res://Scripts/BASE/base_splittable.gd" id="1_f8jqv"]
+
+[node name="BaseSplittable" type="Node3D" unique_id=1521127115]
+script = ExtResource("1_f8jqv")

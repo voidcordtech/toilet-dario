@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://f42ucb6h3cs6"]
+
+[ext_resource type="PackedScene" uid="uid://ct36am7pq7mcr" path="res://Scenes/Ui/Menu/Widget/header.tscn" id="1_e6tmm"]
+[ext_resource type="Script" uid="uid://7vhd4b66ditp" path="res://Scripts/Ui/about_menu.gd" id="1_nec1h"]
+[ext_resource type="PackedScene" uid="uid://1p10xjkf0ad" path="res://Scenes/Ui/Menu/Widget/godot_credit.tscn" id="2_h3hk6"]
+
+[node name="AboutMenu" type="Control" unique_id=225567781]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nec1h")
+
+[node name="Window" type="PanelContainer" parent="." unique_id=1221265420]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelWindow"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window" unique_id=1418988293]
+layout_mode = 2
+
+[node name="Header" parent="Window/VBoxContainer" unique_id=1345164072 instance=ExtResource("1_e6tmm")]
+layout_mode = 2
+title = "About"
+
+[node name="View" type="PanelContainer" parent="Window/VBoxContainer" unique_id=1917273106]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PanelView"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View" unique_id=841080921]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="EachTile" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer" unique_id=1491684500]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="1" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/EachTile" unique_id=594319081]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/EachTile/1" unique_id=1187965206]
+layout_mode = 2
+theme_type_variation = &"Title1"
+text = "1. Youtube"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/EachTile/1" unique_id=586540967]
+layout_mode = 2
+
+[node name="Youtube" type="Button" parent="Window/VBoxContainer/View/MarginContainer/EachTile/1/HBoxContainer" unique_id=570117066]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "https://www.youtube.com/@voidcordtech"
+text = "Voidcord"
+
+[node name="YoutubeLink" type="RichTextLabel" parent="Window/VBoxContainer/View/MarginContainer/EachTile/1/HBoxContainer" unique_id=1951362193]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[url=https://www.youtube.com/@voidcordtech]Copy link[/url]"
+fit_content = true
+
+[node name="2" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/EachTile" unique_id=306716487]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/EachTile/2" unique_id=1171971928]
+layout_mode = 2
+theme_type_variation = &"Title1"
+text = "2. Github"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/EachTile/2" unique_id=1974965398]
+layout_mode = 2
+
+[node name="SourceCode" type="Button" parent="Window/VBoxContainer/View/MarginContainer/EachTile/2/HBoxContainer" unique_id=2107931314]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "https://github.com/voidcordtech/toilet-dario"
+text = "Source code"
+
+[node name="GithubLink" type="RichTextLabel" parent="Window/VBoxContainer/View/MarginContainer/EachTile/2/HBoxContainer" unique_id=1642498878]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[url=https://github.com/voidcordtech/toilet-dario]Copy link[/url]"
+fit_content = true
+
+[node name="Testing" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/EachTile" unique_id=981899464]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/EachTile/Testing" unique_id=499180338]
+layout_mode = 2
+theme_type_variation = &"Title1"
+text = "Testing"
+
+[node name="Button" type="LineEdit" parent="Window/VBoxContainer/View/MarginContainer/EachTile/Testing" unique_id=920109639]
+layout_mode = 2
+text = "edit"
+
+[node name="GodotCredit" parent="Window/VBoxContainer/View/MarginContainer/EachTile" unique_id=1535962297 instance=ExtResource("2_h3hk6")]
+layout_mode = 2
+
+[connection signal="pressed" from="Window/VBoxContainer/View/MarginContainer/EachTile/1/HBoxContainer/Youtube" to="." method="_on_youtube_pressed"]
+[connection signal="meta_clicked" from="Window/VBoxContainer/View/MarginContainer/EachTile/1/HBoxContainer/YoutubeLink" to="." method="_on_youtube_link_meta_clicked"]
+[connection signal="pressed" from="Window/VBoxContainer/View/MarginContainer/EachTile/2/HBoxContainer/SourceCode" to="." method="_on_source_code_pressed"]
+[connection signal="meta_clicked" from="Window/VBoxContainer/View/MarginContainer/EachTile/2/HBoxContainer/GithubLink" to="." method="_on_github_link_meta_clicked"]

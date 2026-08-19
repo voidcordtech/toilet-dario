@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://ddch0oflr2ngc"]
+
+[ext_resource type="Script" uid="uid://btdmv0vmnva7g" path="res://Scripts/Ui/settings_menu.gd" id="1_uit7r"]
+[ext_resource type="PackedScene" uid="uid://ct36am7pq7mcr" path="res://Scenes/Ui/Menu/Widget/header.tscn" id="2_txyxw"]
+
+[node name="SettingsMenu" type="Control" unique_id=1356084122]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uit7r")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Window" type="PanelContainer" parent="." unique_id=624923738]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelWindow"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window" unique_id=1651557942]
+layout_mode = 2
+
+[node name="Header" parent="Window/VBoxContainer" unique_id=1345164072 instance=ExtResource("2_txyxw")]
+layout_mode = 2
+title = "Settings"
+
+[node name="View" type="PanelContainer" parent="Window/VBoxContainer" unique_id=854411658]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PanelView"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View" unique_id=198096830]
+layout_mode = 2
+theme_type_variation = &"MarginCenter"
+
+[node name="TabContainer" type="TabContainer" parent="Window/VBoxContainer/View/MarginContainer" unique_id=1035719575]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="Video" type="TabBar" parent="Window/VBoxContainer/View/MarginContainer/TabContainer" unique_id=257830629]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video" unique_id=297882386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EachTiles" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer" unique_id=1335987235]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="QualityTile" type="PanelContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles" unique_id=845368110]
+layout_mode = 2
+theme_type_variation = &"PanelListTile"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/QualityTile" unique_id=2022325371]
+layout_mode = 2
+
+[node name="QualityLine" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/QualityTile/MarginContainer" unique_id=1538807293]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/QualityTile/MarginContainer/QualityLine" unique_id=502123124]
+layout_mode = 2
+text = "Quality"
+
+[node name="VSeparator" type="VSeparator" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/QualityTile/MarginContainer/QualityLine" unique_id=878354810]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Scaling" type="OptionButton" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/QualityTile/MarginContainer/QualityLine" unique_id=1896188822]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/arrow_margin = 4
+alignment = 1
+item_count = 4
+popup/item_0/text = "High "
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Low"
+popup/item_2/id = 2
+popup/item_3/text = "Very Low"
+popup/item_3/id = 3
+
+[node name="MaxFpsTile" type="PanelContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles" unique_id=757087738]
+layout_mode = 2
+theme_type_variation = &"PanelListTile"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/MaxFpsTile" unique_id=1574434009]
+layout_mode = 2
+
+[node name="Line" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/MaxFpsTile/MarginContainer" unique_id=1263383728]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/MaxFpsTile/MarginContainer/Line" unique_id=1448878603]
+layout_mode = 2
+text = "Max FPS"
+
+[node name="VSeparator" type="VSeparator" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/MaxFpsTile/MarginContainer/Line" unique_id=1264452427]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fps" type="OptionButton" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Video/MarginContainer/EachTiles/MaxFpsTile/MarginContainer/Line" unique_id=1939369046]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/arrow_margin = 4
+alignment = 1
+item_count = 3
+popup/item_0/text = "Unlimited"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "30"
+popup/item_2/id = 2
+
+[node name="Audio" type="TabBar" parent="Window/VBoxContainer/View/MarginContainer/TabContainer" unique_id=1324140672]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio" unique_id=982730506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EachTiles" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer" unique_id=867267056]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles" unique_id=2009288377]
+layout_mode = 2
+theme_type_variation = &"Title2"
+text = "Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles" unique_id=123984396]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles/HBoxContainer" unique_id=447225191]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="MasterVolume" type="HSlider" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles/HBoxContainer" unique_id=927715185]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles" unique_id=899004876]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles/HBoxContainer2" unique_id=1025365596]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Sound (SFX)"
+
+[node name="SfxVolume" type="HSlider" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles/HBoxContainer2" unique_id=135180033]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles" unique_id=1516502525]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles/HBoxContainer3" unique_id=1915233148]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Ambient"
+
+[node name="AmbientVolume" type="HSlider" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Audio/MarginContainer/EachTiles/HBoxContainer3" unique_id=101060780]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Shortcut" type="TabBar" parent="Window/VBoxContainer/View/MarginContainer/TabContainer" unique_id=1919306959]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Shortcut" unique_id=1721219515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Shortcut/MarginContainer" unique_id=452795428]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/View/MarginContainer/TabContainer/Shortcut/MarginContainer/VBoxContainer" unique_id=643874227]
+layout_mode = 2
+text = "W A S D: Move
+Space: Jump
+R: Reload
+E: Interact
+ESC: Stop
+
+(You can't rebind, goodluck <3)"
+
+[node name="ResetButton" type="Button" parent="Window/VBoxContainer/View/MarginContainer" unique_id=1339735039]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Reset Default"

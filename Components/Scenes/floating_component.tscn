@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvc21vwi7un4t"]
+
+[ext_resource type="Script" uid="uid://7ebnywxugcrc" path="res://Components/Scripts/floating_component.gd" id="1_ako1q"]
+
+[node name="FloatingComponent" type="Node" unique_id=1399224699]
+script = ExtResource("1_ako1q")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://blb8f5mg8gnt2"]
+
+[ext_resource type="Script" uid="uid://b0vrpud3xwst6" path="res://Scripts/Autoload/vfx_manager.gd" id="1_g4p80"]
+[ext_resource type="PackedScene" uid="uid://wr1kxpg5f354" path="res://Scenes/blood_vfx.tscn" id="2_pfd24"]
+[ext_resource type="PackedScene" uid="uid://ckvpdq0weqhqc" path="res://Scenes/small_explosion.tscn" id="3_j7ouu"]
+[ext_resource type="PackedScene" uid="uid://c0yex4n55fxpg" path="res://Scenes/break_brick_vfx.tscn" id="4_wh16k"]
+[ext_resource type="PackedScene" uid="uid://cjhgitnhl8oo" path="res://Scenes/enemy_hurt_vfx.tscn" id="5_ap774"]
+[ext_resource type="PackedScene" uid="uid://cscvhreqi3pe8" path="res://Scenes/pop_score.tscn" id="6_6rwsx"]
+[ext_resource type="PackedScene" uid="uid://edwraxy8ehof" path="res://Scenes/Splittable/mushroom_splittable.tscn" id="8_6iqxm"]
+
+[node name="VfxManager" type="Node" unique_id=1113181895]
+script = ExtResource("1_g4p80")
+blood_vfx = ExtResource("2_pfd24")
+small_explosion_vfx = ExtResource("3_j7ouu")
+break_bricks_vfx = ExtResource("4_wh16k")
+enemy_hurt_vfx = ExtResource("5_ap774")
+pop_score_vfx = ExtResource("6_6rwsx")
+mushroom_splittable = ExtResource("8_6iqxm")

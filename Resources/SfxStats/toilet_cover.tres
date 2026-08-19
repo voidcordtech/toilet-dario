@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SfxStats" format=3 uid="uid://cr3w8y5p846ma"]
+
+[ext_resource type="Script" uid="uid://hskyx6kdcrob" path="res://Classes/sfx_stats.gd" id="1_qdhu2"]
+[ext_resource type="AudioStream" uid="uid://b43xbmdm38wk6" path="res://Assets/Audio/Sfx/toilet_cover.wav" id="2_168ij"]
+
+[resource]
+script = ExtResource("1_qdhu2")
+streams = Array[AudioStream]([ExtResource("2_168ij")])
+volume_db = 8.0
+pitch_variation = 0.0
+metadata/_custom_type_script = "uid://hskyx6kdcrob"

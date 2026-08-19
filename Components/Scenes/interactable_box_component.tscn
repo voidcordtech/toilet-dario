@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://swh4xsjeii0r"]
+
+[ext_resource type="Script" uid="uid://b48agv185b7s7" path="res://Components/Scripts/interacable_box_component.gd" id="1_1x0gg"]
+[ext_resource type="Texture2D" uid="uid://bqqal5j3388sr" path="res://Assets/Icons/Custom/E.png" id="2_rivi3"]
+
+[node name="InteractableBoxComponent" type="Area3D" unique_id=329235206]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_1x0gg")
+
+[node name="E" type="Sprite3D" parent="." unique_id=1722708701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+no_depth_test = true
+texture = ExtResource("2_rivi3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
