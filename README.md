@@ -8,8 +8,8 @@ This game is incomplete and buggy, i know. But i am lazy.
 
 ## License
 > You are free to use, modify, and distribute this project for any purpose, including commercial use, no credit required.
-- Project: Toilet Dario is licensed under the [MIT-0 License](LICENSE).
-- Assets: All the assets in the `Assets` folder are licensed under the [CC0 License](https://creativecommons.org/publicdomain/zero/1.0/).
+- Project: Toilet Dario is licensed under the [MIT-0 License](./LICENSE).
+- Assets: All the assets in the `Assets` folder are licensed under the [Creative Commons Zero (CC0) License](https://creativecommons.org/publicdomain/zero/1.0/).
 - Addons: All the addons in the `addons` folder are either licensed under MIT License or CC0 License. See their own `LICENSE` files in the addon folders for more information.
 
 ## Follow Voidcord
