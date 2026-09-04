@@ -26,7 +26,7 @@ func _ready() -> void:
 	set_default_value()
 
 # Video 
-func set_scaling(index: int = 0) -> void:
+func set_scaling(index: int = 2) -> void:
 	scaling.select(index)
 	get_viewport().scaling_3d_scale = RENDER_SCALE[index]
 
